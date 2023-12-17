@@ -48,6 +48,11 @@ async function startServer() {
   // Other middlewares (e.g. some RPC middleware such as Telefunc)
   // ...
 
+  let i = 0;
+  app.get("/oee", async (req, res, next) => {
+    res.send("oee" + i++);
+  });
+
   // Vike middleware. It should always be our last middleware (because it's a
   // catch-all middleware superseding any middleware placed after it).
   app.get('*', async (req, res, next) => {
